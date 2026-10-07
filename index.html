@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OurSocial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <canvas id="threads"></canvas>
+
+  <main class="app-shell">
+    <!-- LOGIN PAGE -->
+    <section class="page login-page active" id="loginPage">
+      <div class="login-card glass">
+        <div class="brand-mark">OS</div>
+        <div class="eyebrow">WELCOME TO</div>
+        <h1>Our<span>Social</span></h1>
+        <p class="subtitle">A little space for your people.</p>
+
+        <div class="provider-row">
+          <button class="provider active" data-provider="Discord">
+            <span class="provider-icon discord">⌁</span>
+            <span>Discord</span>
+            <span class="status-dot"></span>
+          </button>
+          <button class="provider" data-provider="GitHub" id="githubButton">
+            <span class="provider-icon github">◉</span>
+            <span>GitHub</span>
+            <span class="soon">SOON</span>
+          </button>
+        </div>
+
+        <div class="divider"><span>DISCORD LOGIN</span></div>
+
+        <form id="loginForm" autocomplete="off">
+          <label class="field-label" for="email">Account ID</label>
+          <div class="input-wrap">
+            <span class="input-icon">@</span>
+            <input id="email" type="text" placeholder="name@gmail.com" spellcheck="false" />
+          </div>
+          <div class="hint" id="emailHint">Use a Gmail address with at least 4 characters before @gmail.com.</div>
+
+          <label class="field-label" for="cookieName">Profile name</label>
+          <div class="input-wrap">
+            <span class="input-icon">◆</span>
+            <input id="cookieName" type="text" placeholder="your profile name" maxlength="40" />
+          </div>
+          <div class="hint" id="cookieHint">Use a name with at least one letter or other non-number character.</div>
+
+          <button class="login-button" type="submit">
+            <span>ENTER OURSOCIAL</span>
+            <span class="arrow">→</span>
+          </button>
+          <p class="form-message" id="formMessage"></p>
+        </form>
+
+        <div class="tiny-note">Frontend prototype • profile data is saved when the database is connected.</div>
+      </div>
+    </section>
+
+    <!-- MAIN APP -->
+    <section class="page main-page" id="mainPage">
+      <div class="main-layout">
+        <aside class="sidebar glass">
+          <div class="side-brand"><span class="brand-mini">OS</span> OurSocial</div>
+          <nav>
+            <button class="nav-item active"><span>⌂</span> Home</button>
+            <button class="nav-item"><span>✦</span> Explore</button>
+            <button class="nav-item"><span>♡</span> Notifications</button>
+            <button class="nav-item"><span>✉</span> Messages</button>
+            <button class="nav-item"><span>◉</span> Profile</button>
+          </nav>
+          <button class="post-button" id="postButton">+ New post</button>
+          <div class="profile-mini">
+            <div class="avatar">O</div>
+            <div>
+              <strong id="profileEmail">guest@gmail.com</strong>
+              <span>@oursocial</span>
+            </div>
+          </div>
+        </aside>
+
+        <div class="feed-column">
+          <header class="topbar glass">
+            <div>
+              <div class="top-title">Home</div>
+              <div class="top-sub">Your circle, your feed.</div>
+            </div>
+            <div class="online-pill"><span></span> Online</div>
+          </header>
+
+          <div class="compose glass">
+            <div class="avatar">O</div>
+            <button id="composeButton" class="compose-placeholder">What’s happening?</button>
+          </div>
+
+          <article class="post glass">
+            <div class="post-head">
+              <div class="avatar gradient-avatar">O</div>
+              <div class="post-author">
+                <strong>OurSocial</strong>
+                <span>@oursocial • just now</span>
+              </div>
+              <button class="more">•••</button>
+            </div>
+            <p>Welcome to <b>OurSocial</b> ✨ This is the first look at your new social space.</p>
+            <div class="post-visual">
+              <div class="glow-orb one"></div>
+              <div class="glow-orb two"></div>
+              <span>YOUR<br><b>WORLD</b></span>
+            </div>
+            <div class="post-actions">
+              <button>♡ <span>12</span></button>
+              <button>◌ <span>4</span></button>
+              <button>↗ <span>Share</span></button>
+            </div>
+          </article>
+
+          <article class="post glass">
+            <div class="post-head">
+              <div class="avatar second-avatar">M</div>
+              <div class="post-author">
+                <strong>Maya</strong>
+                <span>@maya • 7m</span>
+              </div>
+              <button class="more">•••</button>
+            </div>
+            <p>Black UI + colorful threads is honestly a vibe. 🌌</p>
+            <div class="post-actions">
+              <button>♡ <span>8</span></button>
+              <button>◌ <span>2</span></button>
+              <button>↗ <span>Share</span></button>
+            </div>
+          </article>
+        </div>
+
+        <aside class="right-panel glass">
+          <div class="panel-title">Trending now</div>
+          <div class="trend"><span>#1</span><div><b>#OurSocial</b><small>1.8K posts</small></div></div>
+          <div class="trend"><span>#2</span><div><b>#Gaming</b><small>926 posts</small></div></div>
+          <div class="trend"><span>#3</span><div><b>#Music</b><small>711 posts</small></div></div>
+          <div class="panel-title people-title">People you may know</div>
+          <div class="person"><div class="avatar second-avatar">A</div><div><b>Alex</b><small>@alex</small></div><button>Follow</button></div>
+          <div class="person"><div class="avatar gradient-avatar">J</div><div><b>Jay</b><small>@jay</small></div><button>Follow</button></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast">Demo action</div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
